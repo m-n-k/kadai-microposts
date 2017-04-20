@@ -1,5 +1,5 @@
 <ul class="media-list">
-  <% microposts.each do |micropost| %>
+  <% favs.each do |micropost| %>
     <% user = micropost.user %>
     <li class="media">
       <div class="media-left">
@@ -18,7 +18,7 @@
           <p><%= micropost.content %></p>
         </div>
         <div>
-          <%= render 'favorites/fav_button', a_post: micropost %>
+          <%= render 'relationships/follow_button', user: @user %>
           <% if current_user == micropost.user %>
             <%=
               link_to "Delete", micropost, method: :delete,
@@ -30,5 +30,5 @@
       </div>
     </li>
   <% end %>
-  <%= paginate microposts %>
+  <%= paginate favs %>
 </ul>
