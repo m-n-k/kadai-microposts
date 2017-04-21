@@ -1,0 +1,8 @@
+<div class="btn btn-xs btn-link" style="padding:0">
+  <%= render 'favorites/fav_button', a_post: micropost %>
+</div>
+<% if current_user == micropost.user %>
+  <%= link_to "Delete", micropost, method: :delete,
+    data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs'
+  %>
+<% end %>
